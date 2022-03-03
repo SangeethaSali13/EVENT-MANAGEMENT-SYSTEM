@@ -1,0 +1,73 @@
+{% include 'customerheader.html' %}
+
+<section id="home" class="home">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper"> 
+	<center>
+	<form method="post">
+	{% if data['cust'] %}
+
+	<h1>update custom event</h1>
+		<table border="40">
+			<tr>
+				<th>custom event title</th>
+				<td><input type="text" name="cet" value="{{data['cust'][0]['custom_event_title']}}" required></td>
+			</tr>
+			<tr>
+				<th>budget amount</th>
+				<td><input type="text" name="ba" value="{{data['cust'][0]['budget_amount']}}"></td>
+				<td align="center" colspan="2"><input type="submit" name="update" value="update"></td>
+			</tr>
+		</table>
+	</form>	
+	{% else %}		
+	<h1 style="color: white;margin-top: 1em">custom event</h1>
+	<table class="table" style="width: 500px;height: 50px">
+		<tr>
+				<th>custom event title</th>
+				<td><input style="color: white" type="text" name="cet" required class="form-control"></td>
+			</tr>
+			<tr>
+				<th>budget amount</th>
+				<td><input style="color: white" type="text" name="ba" required class="form-control"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="manage" value="MANAGE" class="btn btn-success"></td>
+			</tr>
+	</table>	
+	{% endif %}
+		</form>
+
+                        </div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->
+
+		<h1>view custom event</h1>
+		<div style="overflow: scroll;height: 300px">
+		<table border="30">
+			<tr>
+				<th>slno</th>
+				<th>custom event title</th>
+				<th>budget amount</th>
+			</tr>
+		{% for row in data['customevent'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['custom_event_title']}}</td>
+				<td>{{row['budget_amount']}}</td>
+				<td><a href="?action=delete&id={{row['custom_event_id']}}" class="btn btn-danger">delete</a></td>
+				<td><a href="?action=update&id={{row['custom_event_id']}}" class="btn btn-warning">update</a></td>
+				<td><a href="customer_manage_custom_event_details?ceid={{row['custom_event_id']}}">manage custom event details</a></td>
+				<td><a href="customer_view_send_proposal?ceid={{row['custom_event_id']}}">view poroposal</a></td>
+			</tr>
+		{% endfor %}
+		</table>
+</center>
+{% include 'footer.html'%}

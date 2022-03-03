@@ -1,0 +1,63 @@
+{% include 'adminheader.html' %}
+<section id="home" class="home" style="overflow: auto;">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper"> 
+<form method="post">
+		<div style="overflow-x: scroll;height: 400px">
+
+	<h1 style="color: white;margin-top: 1em">Manage package details</h1>
+	<table class="table" style="width: 500px;height: 40px">
+		<tr>
+			<th style="color: white">feature</th>
+			<td>
+				<select name="feature" required="" class="form-control" style="color: white">
+					{% for row in data['feature'] %}
+					<option value="{{row['feature_id']}}" style="color: black">{{row['feature_title']}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+			<tr>
+			
+				<th>Amount</th>
+				<td><input type="text" name="amt" class="form-control" style="color: white"></td>
+				
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" name="package" value="MANAGE" class="btn btn-success"></td>
+		</tr>
+	</table>
+</div>
+</form>
+</div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->
+{% if data['pdetails'] %}
+<h1 align="center">FEATURES ADDED ON THIS PACKAGE</h1>
+<table class="table" align="center">
+	<tr>
+		<th>FEATURE</th>
+		<th>AMOUNT</th>
+	</tr>
+	{% for row in data['pdetails'] %}
+	<tr>
+	<td>{{row['feature_title']}}</td>
+	<td>{{row['amt']}}</td>
+	<td><a href="?action=delete&package_details_id={{row['package_details_id']}}&pid={{data['pid']}}">DELETE</a></td>
+	
+	</tr>
+	{% endfor %}
+	<tr>
+		<!-- <td colspan="3" align="center">TOTAL-{{data['pdetails'][0]['package_amount']}}</td> -->
+	</tr>
+</table>
+{% endif %}
+
+{% include 'footer.html' %}

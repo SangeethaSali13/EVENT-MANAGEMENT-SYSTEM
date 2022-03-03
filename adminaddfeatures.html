@@ -1,0 +1,71 @@
+
+{% include 'adminheader.html' %}
+<section id="home" class="home">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper"> 
+    <center>
+    <form method="post">
+    {% if data['feat'] %}	
+    <h1>update add on features</h1>
+        <table class="table">
+         	<tr>
+         		<th>featuretitle</th>
+         		<td><input type="text" name="ft" value="{{data['feat'][0]['feature_title']}}" required></td>
+         	</tr>
+         	<tr>
+         		<th>featuredescription</th>
+         		<td><input type="text" name="fd" value="{{data['feat'][0]['feature_description']}}" required></td>
+         	</tr>
+         	<tr>
+         		<td align="center" colspan="2"><input type="submit" name="update" value="update"></td>
+         	</tr>
+        </table>
+    {% else %}
+	<h1 style="color: white;margin-top: 1em">features</h1>
+	<table class="table" style="width: 500px;height: 50px">
+		<tr>
+			<th style="color: white">featuretitle</th>
+			<td><input style="color: white" type="text" name="ft" required class="form-control"></td>
+		</tr>
+		<tr>
+			<th style="color: white">featuredescription</th>
+			<td><input style="color: white" type="text" name="fd" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" name="submit" value="Add" class="btn btn-success"></td>
+		</tr>
+	</table>
+	{% endif %}
+    </form>
+
+                        </div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->
+
+              <h1 align="center">view features</h1>  
+              <div style="overflow: scroll;height: 300px">     
+    <table class="table">
+        <tr>
+            <th>slno</th>
+            <th>Feature title</th>
+            <th>Feature description</th>
+        </tr>
+    {% for row in data['features'] %}   
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['feature_title']}}</td>
+            <td>{{row['feature_description']}}</td>
+            <td><a href="?action=delete&id={{row['feature_id']}}" class="btn btn-danger">delete</a></td>
+            <td><a href="?action=update&id={{row['feature_id']}}" class="btn btn-warning">update</a></td>
+        </tr>
+    {% endfor %}    
+    </table>
+    </center>
+{% include 'footer.html'%}

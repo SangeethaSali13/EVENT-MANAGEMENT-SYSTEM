@@ -1,0 +1,42 @@
+{% include 'customerheader.html' %}
+<section id="home" class="home"  style="overflow: auto;">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper"> 
+
+<center>
+	<form method="post">
+		<div style="overflow-x: scroll;height: 400px">
+	 	<table class="table" style="width: 500px;height: 40px">
+	 		<h1 style="color: white;margin-top: 1em">book an event</h1>
+			<tr>
+				<th style="color: white">booking date</th>
+				<td><input style="color: white" type="date" required name="bd" required class="form-control"></td>
+			</tr>
+			<tr>
+				<th style="color: white">booking time</th>
+				<th><input style="color: white" type="time" required name="bt" required class="form-control"></th>
+			</tr>
+			<tr>
+				<th style="color: white"h>booking venue</th>
+				<th><input style="color: white" type="text" name="bv" required class="form-control"></th>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="submit" value="Add" class="btn btn-success"></td>
+			</tr>
+		</table>
+	</div>
+	</form>
+
+                        </div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->
+</center>		
+{% include 'footer.html' %}
+

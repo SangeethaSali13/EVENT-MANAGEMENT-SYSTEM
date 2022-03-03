@@ -1,0 +1,53 @@
+{% include 'customerheader.html' %}
+<section id="home" class="home">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper">  
+                      
+                              <center>
+                              	<div style="overflow: scroll;height: 300px">
+	<form method="post">
+		<h1 style="color: white;">view event booking</h1>
+		<table class="table" style="font-size: 20px;width: 700px">
+			<tr>
+				<th>slno</th>
+				<th>package title</th>
+				<th>booking date</th>
+				<th>booking time</th>
+				<th>booking venue</th>
+				<th>package amount</th>
+				<th>status</th>
+			</tr>
+		{% for row in data['booking'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['package_title']}}</td>
+				<td>{{row['booking_date']}}</td>
+				<td>{{row['booking_time']}}</td>
+				<td>{{row['booking_venue']}}</td>
+				<td>{{row['package_amount']}}</td>
+				<td>{{row['booking_status']}}</td>
+				{% if row['booking_status']=='accept' %}
+				<td><a href="customermakepayment?amt={{row['package_amount']}}&bid={{row['booking_id']}}" class="btn btn-success">payment</a></td>
+			
+				{% endif %}
+				{% if row['booking_status']=='Paid' %}
+				<td><a href="customer_view_bill?bid={{row['booking_id']}}" class="btn btn-success">VIEW BILL</a></td>
+			
+				{% endif %}
+				</tr>
+		{% endfor %}
+		</table>
+	</form>	
+</div>
+</center>		      
+                        </div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->	
+{% include 'footer.html' %}

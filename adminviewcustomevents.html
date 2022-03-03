@@ -1,0 +1,69 @@
+{% include 'adminheader.html' %}
+
+
+<section id="home" class="home">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper">  
+                      
+                              <center>
+                              	<div style="overflow: scroll;height: 300px">
+	<form method="post">
+		<h1 style="color: white;">view custom event</h1>
+		<table class="table" style="font-size: 20px;width: 700px">
+			<tr>
+				<th>slno</th>
+				<th>custom event title</th>
+				<th>budget amount</th>
+				<th>custom event date</th>
+				<th>custom event status</th>
+			</tr>
+		{% for row in data['customevent'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['custom_event_title']}}</td>
+				<td>{{row['budget_amount']}}</td>
+				<td>{{row['custom_event_date']}}</td>
+				<td>{{row['custom_event_status']}}</td>
+				<td><a href="admin_send_proposal?ceventid={{row['custom_event_id']}}" class="btn btn-success">send proposal</a></td>
+			</tr>
+		{% endfor %}
+		</table>
+	</form>	
+</div>
+</center>		      
+                        </div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->
+
+<!-- <center>
+	<form method="post">
+		<h1>view custom event</h1>
+		<table border="30">
+			<tr>
+				<th>slno</th>
+				<th>custom event title</th>
+				<th>budget amount</th>
+				<th>custom event date</th>
+				<th>custom event status</th>
+			</tr>
+		{% for row in data['customevent'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['custom_event_title']}}</td>
+				<td>{{row['budget_amount']}}</td>
+				<td>{{row['custom_event_date']}}</td>
+				<td>{{row['custom_event_status']}}</td>
+				<td><a href="admin_send_proposal?ceventid={{row['custom_event_id']}}" class="btn btn-primary">send proposal</a></td>
+			</tr>
+		{% endfor %}
+		</table>
+	</form>	
+</center>		 -->
+{% include 'footer.html' %}

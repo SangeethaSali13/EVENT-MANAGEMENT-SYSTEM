@@ -1,0 +1,196 @@
+{% include 'buyer_header.html' %}
+
+ 
+<script> 
+		function printDiv() { 
+			var divContents = document.getElementById("div_print").innerHTML; 
+			var a = window.open('', '', 'height=500, width=500'); 
+			a.document.write(divContents); 
+			a.document.close(); 
+			a.print(); 
+		} 
+	</script> 
+
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(/static/card2.jpg); background-attachment: fixed;height: 200px" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t"  style="height: 200px">
+
+
+						<!-- <div class="display-tc animate-box" data-animate-effect="fadeIn"  style="height: 200px">
+ -->
+<body>
+	
+
+</body>
+
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+<body style="text-align:center;"> 
+	
+	<div id="div_print" > 
+		
+		<form>
+
+
+		<h1 align="center">Cardamom</h1>
+	
+
+<table align="center"  style="color: #000">
+		<tr>
+			<th align="left">Bill No :BNO_{{data['auction'][0]['auction_id']}}</th>
+		</tr>
+		<tr>
+			<th align="left">Date :{{data['auction'][0]['auction_date']}} To {{data['auction'][0]['end_date']}}</th>
+		</tr>
+	<tr>
+		<td>
+			
+	
+	<table>
+		
+		<tr>
+			<th >Seller :{{data['auction'][0]['Sellername']}} </th><br>
+		</tr>
+		<tr>
+			<th >Place :{{data['auction'][0]['Place']}}</th><br>
+		</tr>
+		<tr>
+			<th >Phone :{{data['auction'][0]['Phone']}}</th><br>
+		</tr>
+		<tr>
+			<th >Email :{{data['auction'][0]['Email']}}</th><br>
+		</tr>
+		<tr>
+			<th >Address :{{ data['auction'][0]['Address'] }}</th><br>
+		</tr>
+		
+		
+		
+		<th><br></th>
+	</table>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<th>Customer : {{ data['userdetails'][0]['Firstname'] }} {{ data['userdetails'][0]['Lastname'] }}</th>
+				</tr>
+				<tr>
+					<th >Place :{{ data['userdetails'][0]['Place'] }}</th><br>
+				</tr>
+				<tr>
+					<th >Phone :{{ data['userdetails'][0]['Phone'] }}</th><br>
+				</tr>
+				<tr>
+					<th >Email :{{ data['userdetails'][0]['Email'] }}</th><br>
+				</tr>
+				<tr>
+					<th >&nbsp; Address :{{ data['userdetails'][0]['Address'] }}</th><br>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+</table>
+	<table align="center" class="table" style="width: 1000px;color: #000" border="2">
+		<tr>
+			
+			<th>Quality</th>
+			<th>Quantity</th>
+			<th>Amount</th>
+			<th>GST (18%)</th>
+			<th>TOTAL</th>
+			<!-- <th>Total Amount</th> -->
+		</tr>
+
+
+		
+		<tr>
+			
+			<td>{{data['auction'][0]['Quality']}}</td>
+			<td>{{data['auction'][0]['Quantity']}}</td>
+			<td>{{data['amt']}}</td>
+			<td>{{(data['amt'] |int * 15)/100}}</td>
+			<td> {{data['amt'] |int +(data['amt'] |int * 15)/100 }}</td>
+			<!-- <td><?php echo $row['ordermaster_total']; ?></td> -->
+		</tr>
+	
+
+
+	</table>
+	<table>
+		<tr>
+			<th style="padding-left: 1000px;">Total Amount : {{data['amt'] |int +(data['amt'] |int * 15)/100 }}</th>
+		</tr>
+		<tr>
+			<th><br></th>
+		</tr>
+		<tr>
+			<th style="padding-left: 1000px;">pay : Card</th>
+		</tr>
+	</table>
+
+</form>
+	</div> 
+	
+	<input type="button" class="btn btn-info" value="click to print" onclick="printDiv()"> 
+
+<br><br><br><br><br>
+				 
+
+
+
+<!-- 
+
+
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(/static/card2.jpg); background-attachment: fixed;height: auto" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <div class="display-t">
+
+
+                        <div class="display-tc animate-box" data-animate-effect="fadeIn">
+<h1>BILL</h1>
+<center>
+	<form method="post">
+<table class="table" style="color: white">
+	<tr>
+		<th>SELLER NAME</th>
+		<td style="color: white">{{data['auction'][0]['Sellername']}}</td>
+	</tr>
+	<tr>
+
+		<th>QUALITY</th>
+		<td style="color: white">{{data['auction'][0]['Quality']}}</td>
+</tr>
+<tr>
+	
+		<th>Quantity</th>
+		<td style="color: white">{{data['auction'][0]['Quantity']}}</td>
+	
+</tr>
+<tr>
+	<th>AMOUNT</th>
+	<td style="color: white">{{data['amt']}}</td>
+</tr>
+</table>
+
+</center>
+
+
+		</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header> -->
+{% include 'footer.html' %}

@@ -1,0 +1,114 @@
+{% include 'public_header.html' %}
+
+<script src="
+https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script>
+    $(function() {
+        $("input[name='fname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        $("input[name='lname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        $("input[name='housename']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        $("input[name='place']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        $("input[name='pincode']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='phno']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='email']").on('input', function(e) {
+              var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{1,}/.test(this.value);
+                if(!re) {
+                    $('#eerror').show();
+                } else {
+                    $('#eerror').hide();
+                }
+
+        });
+       
+    });
+</script>
+	
+<section id="home" class="home" style="overflow: auto;">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper">
+
+		<center>
+		<form method="post">
+		<div style="overflow-x: scroll;height: 400px">
+		<table class="table" style="width: 500px;height: 40px">	
+		<h1 style="color: white">Customer Registration</h1>
+			<tr>
+				<th>First Name</th>
+				<td><input style="color: white" type="text" name="fname" required pattern="[A-Za-z]+$" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Last Name</th>
+				<td><input style="color: white" type="text" name="lname" required pattern="[A-Za-z]+$" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Gender</th>
+				<td><input style="color: white" type="radio" name="gender" value="Male" checked>Male
+				<input style="color: white" type="radio" name="gender" value="Female">Female</td>
+			</tr>
+			<tr>
+				<th>House Name</th>
+				<td><input style="color: white" type="text" name="housename" required pattern="[A-Za-z]+$" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Place</th>
+				<td><input style="color: white" type="text" name="place" required pattern="[A-Za-z]+$" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Pincode</th>
+				<td><input style="color: white" type="text" name="pincode" maxlength="6" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td><input style="color: white" type="text" name="email" required class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Phone</th>
+				<td><input style="color: white" type="text" name="phno" maxlength="10"  required class="form-control"></td>
+			</tr>
+			<tr>
+				<th>username</th>
+				<td><input style="color: white" type="text" name="un" minlength="5" placeholder="must be 5 character" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>password</th>
+				<td><input style="color: white" type="password" name="pwd" minlength="8" placeholder="must be 8 character" class="form-control"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="6"><input type="submit" name="register" value="REGISTER" class="btn btn-success"></td>
+			</tr>
+		</table>
+  </div>
+		</form>
+	</center>
+	</div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+
+          <!-- End Slider  -->
+    
+{% include 'footer.html' %}s

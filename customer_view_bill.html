@@ -1,0 +1,62 @@
+{% include 'customerheader.html' %}
+ 
+<script> 
+		function printDiv() { 
+			var divContents = document.getElementById("div_print").innerHTML; 
+			var a = window.open('', '', 'height=500, width=500'); 
+			a.document.write(divContents); 
+			a.document.close(); 
+			a.print(); 
+		} 
+	</script> 
+		
+
+<section id="home" class="home"  style="overflow: auto;">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper"> 
+
+<center>
+	<form method="post">
+
+<div style="overflow-x: scroll;height: 400px">
+
+<div id="div_print" >
+<table class="table" style="width: 500px;height: 40px">
+	<tr>
+		<th>SL.NO</th>
+		<th>FEATURE</th>
+		<th>AMOUNT</th>
+	</tr>
+	{% for row in data['pdetails'] %}
+	<tr>
+		<td>{{loop.index}}</td>
+	<td>{{row['feature_title']}}</td>
+	<td>{{row['amt']}}</td>
+	
+	
+	</tr>
+	{% endfor %}
+	<tr>
+		<td colspan="3" align="center">TOTAL-{{data['pdetails'][0]['package_amount']}}</td>
+	</tr>
+</table>
+<input type="button" class="btn btn-info" value="click to print" onclick="printDiv()"> 
+	</div>
+</div>
+	</form>
+</center>	
+	
+                        </div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->
+
+
+
+{% include 'footer.html' %}

@@ -1,0 +1,35 @@
+{% include 'customerheader.html' %}
+<section id="home" class="home">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper">  
+                      
+                              <center>
+                              	<div style="overflow: scroll;height: 300px">
+	<form method="post">
+		<h1 style="color: white;">view event categories</h1>
+		<table class="table" style="font-size: 20px;width: 700px">
+			<tr>
+				<th>slno</th>
+				<th>Category name</th>
+			</tr>
+        {% for row in data['eventcategories'] %}
+        <tr>
+        	<th>{{loop.index}}</th>
+        	<th>{{row['category_name']}}</th>
+        </tr>
+        {% endfor  %}
+		</table>
+	</form>
+</div>
+</center>		      
+                        </div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->
+{% include 'footer.html' %}

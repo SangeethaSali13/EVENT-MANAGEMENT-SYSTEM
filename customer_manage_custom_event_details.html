@@ -1,0 +1,36 @@
+{% include 'adminheader.html' %}
+<section id="home" class="home">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper"> 
+
+<form method="post">
+	<h1 style="color: white;margin-top: 1em">Manage custom event details</h1>
+	<table class="table" style="width: 500px;height: 50px">
+		<tr>
+			<th>feature</th>
+			<td>
+				<select name="feature">
+					{% for row in data['feature'] %}
+					<option value="{{row['feature_id']}}">{{row['feature_title']}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" name="customevent" value="MANAGE" class="btn btn-success"></td>
+		</tr>
+	</table>
+</form>
+</div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->
+
+
+{% include 'footer.html' %}

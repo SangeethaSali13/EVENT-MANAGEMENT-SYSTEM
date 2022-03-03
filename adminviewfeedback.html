@@ -1,0 +1,37 @@
+{% include 'adminheader.html' %}
+<section id="home" class="home">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper">  
+                      
+                              <center>
+                              	<div style="overflow: scroll;height: 300px">
+	<form method="post">
+		<h1 style="color: white;">view feedback</h1>
+		<table class="table" style="font-size: 20px;width: 700px">
+			<tr>
+				<th>slno</th>
+				<th>feedback</th>
+				<th>feedback date</th>
+			</tr>
+		{% for row in data['feedback'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['feedback']}}</td>
+				<td>{{row['feedback_date']}}</td>
+			</tr>
+		{% endfor %}
+		</table>
+	</form>	
+</div>
+</center>		      
+                        </div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->	
+{% include 'footer.html' %}

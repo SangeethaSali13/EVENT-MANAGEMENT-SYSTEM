@@ -1,0 +1,52 @@
+{% include 'customerheader.html' %}
+<section id="home" class="home"  style="overflow: auto;">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper"> 
+
+<center>
+	<form method="post">
+    <div style="overflow-x: scroll;height: 400px">
+<table class="table" style="width: 500px;height: 40px">
+	<tr>
+		<th>FEATURE</th>
+		<th>AMOUNT</th>
+	</tr>
+	{% for row in data['pdetails'] %}
+	<tr>
+	<td>{{row['feature_title']}}</td>
+	<td>{{row['amt']}}</td>
+	
+	
+	</tr>
+	{% endfor %}
+	<tr>
+		<td colspan="3" align="center">TOTAL-{{data['pdetails'][0]['package_amount']}}</td>
+	</tr>
+</table>
+
+	<h1 style="color: white;margin-top:">make payment</h1>
+	 	<table class="table" style="width: 500px;height: 50px">
+			<tr>
+				<th>amount</th>
+				<td><input type="number" name="at" value="{{data['amt']}}" readonly class="form-control"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="submit" value="Add" class="btn btn-success"></td>
+			</tr>
+		</table>
+	</div>
+	</form>
+</center>	
+
+                        </div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->
+
+{% include 'footer.html' %}

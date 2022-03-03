@@ -1,0 +1,45 @@
+{% include 'adminheader.html' %}
+<section id="home" class="home">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper">  
+                      
+                              <center>
+                              	<div style="overflow: scroll;height: 300px">
+	<form method="post">
+		<h1 style="color: white;">view complaints</h1>
+		<table class="table" style="font-size: 20px;width: 700px">
+			<tr>
+				<th>slno</th>
+				<th>complaint</th>
+				<th>complaint date</th>
+				<th>reply</th>
+			</tr>
+		{% for row in data['complaints'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['complaint']}}</td>
+				<td>{{row['complaint_date']}}</td>
+				
+				{% if row['reply']=="pending" %}
+					<td><input type="text" name="reply{{loop.index}}"  style="color: white"><input type="submit" name="replys{{loop.index}}" value="Reply" class="btn btn-success"></td>
+				{% else %}
+					<td>{{row['reply']}}</td>
+				{% endif %}
+			</tr>
+		{% endfor %}
+		</table>
+	</form>	
+</div>
+</center>		      
+                        </div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->
+
+{% include 'footer.html' %}

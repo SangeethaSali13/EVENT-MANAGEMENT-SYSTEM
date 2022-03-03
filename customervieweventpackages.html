@@ -1,0 +1,41 @@
+{% include 'customerheader.html' %}
+<section id="home" class="home">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper">  
+                      
+                              <center>
+                              	<div style="overflow: scroll;height: 300px">
+	<form method="post">
+		<h1 style="color: white;">view event packages</h1>
+		<table class="table" style="font-size: 20px;width: 700px">
+			<tr>
+				<th>slno</th>
+				<th>Package title</th>
+				<th>Package amount</th>
+				<th>Package description</th>
+			</tr>
+		{% for row in data ['eventpackages'] %}	
+		    <tr>
+		    	<td>{{loop.index}}</td>
+		    	<td>{{row['package_title']}}</td>
+		    	<td>{{row['package_amount']}}</td>
+		    	<td>{{row['package_description']}}</td>
+		    	<td><a href="customer_book_eventpackages?pid={{row['package_id']}}" class="btn btn-success">Book</a></td>
+		    </tr>
+		{% endfor %}    
+		</table>
+	</form>
+</div>
+</center>		      
+                        </div>
+                        <img src="/static/images/slider/1.jpg" alt="">
+                    </li>
+                    
+                    
+        </section>
+          <!-- End Slider  -->
+
+{% include 'footer.html' %}
